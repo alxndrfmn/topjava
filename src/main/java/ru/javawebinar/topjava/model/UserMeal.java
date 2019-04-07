@@ -26,4 +26,11 @@ public class UserMeal {
     public int getCalories() {
         return calories;
     }
+    public String toString() {
+        return
+                dateTime.toString() + "\t" +
+                        description + "\t" +
+                        calories + "\t";
+    }
+
 }

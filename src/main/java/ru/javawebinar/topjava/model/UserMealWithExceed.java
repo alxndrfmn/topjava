@@ -11,6 +11,14 @@ public class UserMealWithExceed {
 
     private final boolean exceed;
 
+    public String getDescription() {
+        return description;
+    }
+
+    public int getCalories() {
+        return calories;
+    }
+
     public UserMealWithExceed(LocalDateTime dateTime, String description, int calories, boolean exceed) {
         this.dateTime = dateTime;
         this.description = description;
@@ -36,6 +44,21 @@ public class UserMealWithExceed {
                         description + "\t" +
                         calories + "\t" +
                         exceed;
+    }
+    @Override
+    public boolean equals(Object userMealWithExceed) {
+        if (!(userMealWithExceed instanceof UserMealWithExceed)) {
+            return false;
+        }
+        UserMealWithExceed other = (UserMealWithExceed) userMealWithExceed;
+        if (this.dateTime.isEqual(other.dateTime) &&
+            this.description.equals(other.description) &&
+            this.calories == other.calories &&
+            this.exceed == other.exceed
+        ) {
+            return true;
+        }
+        return false;
     }
 
 }
